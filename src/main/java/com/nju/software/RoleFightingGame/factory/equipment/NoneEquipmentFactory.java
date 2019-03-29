@@ -11,7 +11,6 @@ public class NoneEquipmentFactory implements EquipmentFactory {
         return new NoneEquipment();
     }
 
-
     @Override
     public Equipment buyEquipment(Map<String, Double> attr, Integer level, String name, String desc) {
         return new NoneEquipment();

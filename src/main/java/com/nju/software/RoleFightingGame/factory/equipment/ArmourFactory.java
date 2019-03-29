@@ -14,15 +14,16 @@ public class ArmourFactory implements EquipmentFactory {
 
     @Override
     public Equipment buyEquipment(Map<String, Double> attr, Integer level, String name, String desc) {
-        Map<String, Double> value = new HashMap<>();
-        String[] defences = new String[]{"def_chop","def_stab","def_crush","def_ice","def_flame","def_earth","def_lightning"};
-        for(String defence:defences){
-            if(Math.random()<0.5){
-                value.put(defence, Math.random()*5+5);
+        Map<String, Double> armourValue = new HashMap<>();
+        String[] offense = new String[]{"physical","chemical"};
+
+        for(String armour: offense){
+            if(Math.random() < 0.6){
+                armourValue.put(armour, Math.random() * 10 + 15);
             }
         }
-        Armour armour = new Armour(value,1,"随机装备","随机装备，全凭运气");
-        for(int i=1;i<level;i++){
+        Armour armour = new Armour(armourValue, level, name, desc);
+        for(int i = 1;i < level;i++){
             armour.levelUp();
         }
         return armour;
